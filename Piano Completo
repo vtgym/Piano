@@ -31,3 +31,35 @@ t = np.linspace(0, duracao, int(sample_rate * duracao), False)
 onda = volume * np.sin(2 * np.pi * frequencia * t)
 sd.play(onda, samplerate=sample_rate)
 sd.wait()
+
+class Gravador: 
+    def init(self): 
+        self.registro = [] 
+        self.gravando = False 
+
+    def iniciar(self): 
+        self.registro = [] 
+        self.inicio = time.time() 
+        self.gravando = True 
+        status_var.set("Gravando...") 
+
+    def gravar(self, nota): 
+        if self.gravando: 
+            tempo = time.time() - self.inicio 
+            self.registro.append((nota, tempo)) 
+    
+    def parar(self): 
+        self.gravando = False 
+        status_var.set("Pronto.")
+         
+    def reproduzir(self): 
+        if not self.registro: 
+            status_var.set("Nenhuma gravação.") 
+            return status_var.set("Reproduzindo...") 
+            base = self.registro[0][1] 
+            for nota, tempo in self.registro: 
+                delay = tempo - base 
+                time.sleep(delay) 
+                tocar_nota(FREQUENCIES[nota]) 
+                base = tempo 
+            status_var.set("Pronto.")
