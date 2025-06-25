@@ -24,3 +24,10 @@ KEYBOARD_MAP = {
     "k": "C4", "o": "C#4", "l": "D4", "p": "D#4", ";": "E4",
     "z": "F4", "x": "F#4", "c": "G4", "v": "G#4", "b": "A4", "n": "A#4", "m": "B4"
 }
+
+def tocar_nota(frequencia, duracao=0.4, volume=1.5):
+sample_rate = 44100
+t = np.linspace(0, duracao, int(sample_rate * duracao), False)
+onda = volume * np.sin(2 * np.pi * frequencia * t)
+sd.play(onda, samplerate=sample_rate)
+sd.wait()
