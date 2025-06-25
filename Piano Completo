@@ -82,3 +82,31 @@ janela.bind("<Key>", pressionar_teclado)
 
 canvas = tk.Canvas(janela, width=1000, height=250)
 canvas.pack()
+
+white_keys = []
+white_notes = []
+i = 0
+for nota in WHITE_KEYS_ORDER:
+    x = i * KEY_WIDTH
+    btn = tk.Button(
+        janela, text=nota, bg="white", relief="raised",
+        command=lambda n=nota: pressionar_tecla(n)
+    )
+    btn.place(x=x, y=0, width=KEY_WIDTH, height=KEY_HEIGHT)
+    white_keys.append(btn)
+    white_notes.append(nota)
+    i += 1
+
+Teclas pretas
+black_positions = {
+    "C#3": 0, "D#3": 1, "F#3": 3, "G#3": 4, "A#3": 5,
+    "C#4": 7, "D#4": 8, "F#4": 10, "G#4": 11, "A#4": 12
+}
+
+for nota, index in black_positions.items():
+    x = (index + 1) * KEY_WIDTH - BLACK_WIDTH // 2
+    btn = tk.Button(
+        janela, text=nota, fg="white", bg="black", relief="raised",
+        command=lambda n=nota: pressionar_tecla(n)
+    )
+    btn.place(x=x, y=0, width=BLACK_WIDTH, height=BLACK_HEIGHT)
