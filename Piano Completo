@@ -63,7 +63,8 @@ class Gravador:
                 tocar_nota(FREQUENCIES[nota]) 
                 base = tempo 
             status_var.set("Pronto.")
-            def pressionar_tecla(nota):
+            
+def pressionar_tecla(nota):
         if nota in FREQUENCIES:
         tocar_nota(FREQUENCIES[nota])
         gravador.gravar(nota)
