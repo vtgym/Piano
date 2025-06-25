@@ -1,0 +1,10 @@
+
+Criação da Janela
+janela = tk.Tk()
+janela.title("Piano com Teclas Visuais e Teclado PC")
+janela.geometry("560x320")
+janela.resizable(False, False)
+janela.bind("<Key>", pressionar_teclado)
+
+canvas = tk.Canvas(janela, width=1000, height=250)
+canvas.pack()
