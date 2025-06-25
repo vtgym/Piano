@@ -83,7 +83,7 @@ janela.bind("<Key>", pressionar_teclado)
 canvas = tk.Canvas(janela, width=1000, height=250)
 canvas.pack()
 
-hite_keys = []
+white_keys = []
 white_notes = []
 i = 0
 for nota in WHITE_KEYS_ORDER:
