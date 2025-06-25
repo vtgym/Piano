@@ -110,3 +110,21 @@ for nota, index in black_positions.items():
         command=lambda n=nota: pressionar_tecla(n)
     )
     btn.place(x=x, y=0, width=BLACK_WIDTH, height=BLACK_HEIGHT)
+gravador = Gravador()
+
+frame_controles = tk.Frame(janela)
+frame_controles.pack(pady=5)
+
+btn_gravar = tk.Button(frame_controles, text="Gravar", bg="red", fg="white", command=gravador.iniciar)
+btn_gravar.pack(side="left", padx=10)
+btn_parar = tk.Button(frame_controles, text="Parar", bg="gray", fg="white", command=gravador.parar)
+btn_parar.pack(side="left", padx=10)
+btn_reproduzir = tk.Button(frame_controles, text="Reproduzir", bg="green", fg="white", command=gravador.reproduzir)
+btn_reproduzir.pack(side="left", padx=10)
+
+status_var = tk.StringVar()
+status_var.set("Pronto.")
+status_label = tk.Label(janela, textvariable=status_var)
+status_label.pack(pady=5)
+
+janela.mainloop()
