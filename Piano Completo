@@ -25,11 +25,11 @@ KEYBOARD_MAP = {
     "z": "F4", "x": "F#4", "c": "G4", "v": "G#4", "b": "A4", "n": "A#4", "m": "B4"
 }
 
-def tocar_nota(frequencia, duracao=0.4, volume=1.5):
-sample_rate = 44100
-t = np.linspace(0, duracao, int(sample_rate * duracao), False)
-onda = volume * np.sin(2 * np.pi * frequencia * t)
-sd.play(onda, samplerate=sample_rate)
+def tocar_nota(frequencia, duracao=0.3, volume=1.5):
+    sample_rate = 44100
+    t = np.linspace(0, duracao, int(sample_rate * duracao), False)
+    onda = volume * np.sin(2 * np.pi * frequencia * t)
+    sd.play(onda, samplerate=sample_rate)
 sd.wait()
 
 class Gravador: 
@@ -66,7 +66,7 @@ class Gravador:
             
 def pressionar_tecla(nota):
         if nota in FREQUENCIES:
-        tocar_nota(FREQUENCIES[nota])
+         tocar_nota(FREQUENCIES[nota])
         gravador.gravar(nota)
 
 def pressionar_teclado(event):
@@ -97,7 +97,7 @@ for nota in WHITE_KEYS_ORDER:
     white_notes.append(nota)
     i += 1
 
-Teclas pretas
+#Teclas pretas
 black_positions = {
     "C#3": 0, "D#3": 1, "F#3": 3, "G#3": 4, "A#3": 5,
     "C#4": 7, "D#4": 8, "F#4": 10, "G#4": 11, "A#4": 12
