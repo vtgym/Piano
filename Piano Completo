@@ -74,3 +74,11 @@ def pressionar_teclado(event):
     if tecla in KEYBOARD_MAP:
         nota = KEYBOARD_MAP[tecla]
         pressionar_tecla(nota)
+janela = tk.Tk()
+janela.title("Piano com Teclas Visuais e Teclado PC")
+janela.geometry("560x320")
+janela.resizable(False, False)
+janela.bind("<Key>", pressionar_teclado)
+
+canvas = tk.Canvas(janela, width=1000, height=250)
+canvas.pack()
