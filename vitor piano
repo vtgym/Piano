@@ -1,6 +1,0 @@
-def tocar_nota(frequencia, duracao=0.4, volume=0.5):
-    sample_rate = 44100
-    t = np.linspace(0, duracao, int(sample_rate * duracao), False)
-    onda = volume * np.sin(2 * np.pi * frequencia * t)
-    sd.play(onda, samplerate=sample_rate)
-    sd.wait()
